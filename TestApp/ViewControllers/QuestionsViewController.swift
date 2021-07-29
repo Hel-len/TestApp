@@ -30,7 +30,6 @@ class QuestionsViewController: UIViewController {
     }
     
     @IBOutlet var rangedButton: UIButton!
-    
     @IBOutlet var questionProgressView: UIProgressView!
     
     private let questions = Question.getQuestions()
@@ -49,13 +48,11 @@ class QuestionsViewController: UIViewController {
         Helper().shadowButtonDrowing(buttonToDrowShadow: rangedButton)
         
         setupUI()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let resultViewController = segue.destination as? ResultsViewController else { return }
         resultViewController.answers = answersChoosen
- //       resultViewController.questions = questions
     }
     
     @IBAction func singleButtonActionPressed(_ sender: UIButton) {
@@ -72,7 +69,6 @@ class QuestionsViewController: UIViewController {
             }
         }
         nextQuestion()
-        
     }
     
     @IBAction func rangedAnswerButtonPressed() {
@@ -80,7 +76,6 @@ class QuestionsViewController: UIViewController {
         answersChoosen.append(currentAnswers[index])
         nextQuestion()
     }
-    
 }
 
 extension QuestionsViewController {
@@ -97,16 +92,14 @@ extension QuestionsViewController {
         questionProgressView.setProgress(totalProgress, animated: true)
         
         title = "Вопрос №\(questionIndex + 1) из \(questions.count)"
-        
         showCurrentAnswers(for: currentQuestion.type)
-        
     }
     
     private func showCurrentAnswers(for type: ResponseType) {
         switch type {
-        case .single: showSingleStackView(with: currentAnswers)
-        case .multiple: showMultipleStackView(with: currentAnswers)
-        case .ranged: showRangedStackView(with: currentAnswers)
+            case .single: showSingleStackView(with: currentAnswers)
+            case .multiple: showMultipleStackView(with: currentAnswers)
+            case .ranged: showRangedStackView(with: currentAnswers)
         }
     }
     
@@ -141,8 +134,5 @@ extension QuestionsViewController {
         }
         
         performSegue(withIdentifier: "showResult", sender: nil)
-        
     }
-    
-    
 }

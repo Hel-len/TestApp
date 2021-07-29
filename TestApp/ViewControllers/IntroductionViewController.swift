@@ -15,10 +15,8 @@ class IntroductionViewController: UIViewController {
         super.viewDidLoad()
         Helper().setGradientBackground(view: self)
         Helper().shadowButtonDrowing(buttonToDrowShadow: startTestButton)
-        
     }
 
     @IBAction func unwind(segue: UIStoryboardSegue) {}
-    
 }
 

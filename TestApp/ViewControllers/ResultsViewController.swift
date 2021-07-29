@@ -24,7 +24,6 @@ class ResultsViewController: UIViewController {
         findResult()
         mainResultLabel.text = "Вы - " + String(results.first?.rawValue ?? "U")
         fullReesultLabel.text = results.first?.definition ?? "Unknown"
-
     }
     
     private func findResult() {

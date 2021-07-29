@@ -44,6 +44,5 @@ class Helper {
             shadowButtonDrowing(buttonToDrowShadow: button)
         }
     }
-    
 }
 
